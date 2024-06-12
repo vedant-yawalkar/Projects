@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Query Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Query Data</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Domain</th>
+                <th>Year Founded</th>
+                <th>Industry</th>
+                <th>Employees</th>
+                <th>Location</th>
+                <th>Linkedin URL</th>
+                <th>Current Employees</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.domain }}</td>
+                    <td>{{ item.year_founded }}</td>
+                    <td>{{ item.industry }}</td>
+                    <td>{{ item.employees }}</td>
+                    <td>{{ item.location }}</td>
+                    <td><a href="{{ item.linkedin_url }}" target="_blank">{{ item.linkedin_url }}</a></td>
+                    <td>{{ item.current_employees }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
